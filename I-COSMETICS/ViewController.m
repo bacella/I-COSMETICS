@@ -23,6 +23,10 @@
 @synthesize bodyPartSelection;
 @synthesize skinTypeSelection;
 
+@synthesize txtTrattamentoVisoPelliGiovani;
+@synthesize txtTrattamentoVisoPelliMedie;
+@synthesize txtTrattamentoVisoPelliMature;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -34,6 +38,7 @@
     // Connect data
     self.mainSelection.dataSource = self;
     self.mainSelection.delegate = self;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,6 +78,24 @@
     } else {
         skinTypeSelection = [[NSString alloc] initWithFormat:@"%@", [_pickerDataPelle objectAtIndex:row]];
     }
+
+    if ([bodyPartSelection  isEqual: @"Viso"]) {
+        if ([skinTypeSelection  isEqual: @"Giovane"]) {
+            txtTrattamentoVisoPelliGiovani.hidden = NO;
+            txtTrattamentoVisoPelliMedie.hidden = YES;
+            txtTrattamentoVisoPelliMature.hidden = YES;
+        } else if ([skinTypeSelection isEqual: @"Media"]) {
+            txtTrattamentoVisoPelliGiovani.hidden = YES;
+            txtTrattamentoVisoPelliMedie.hidden = NO;
+            txtTrattamentoVisoPelliMature.hidden = YES;
+        } else if ([skinTypeSelection isEqual: @"Matura"]) {
+            txtTrattamentoVisoPelliGiovani.hidden = YES;
+            txtTrattamentoVisoPelliMedie.hidden = YES;
+            txtTrattamentoVisoPelliMature.hidden = NO;
+        }
+    }
+
+
 }
 
 - (IBAction)pageControlIndicator:(id)sender {

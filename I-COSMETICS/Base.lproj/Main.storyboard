@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Trattamento e tipo di pelle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCI-gl-d2M">
-                                <rect key="frame" x="16" y="78" width="288" height="27"/>
+                                <rect key="frame" x="16" y="60" width="288" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -26,20 +26,24 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sfondo.png" translatesAutoresizingMaskIntoConstraints="NO" id="B8d-oX-Z9q">
                                 <rect key="frame" x="16" y="325" width="288" height="178"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Trattamento" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IW8-cA-5ES">
-                                <rect key="frame" x="16" y="290" width="288" height="27"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9JP-fH-BbZ">
-                                <rect key="frame" x="0.0" y="113" width="320" height="162"/>
+                                <rect key="frame" x="0.0" y="60" width="320" height="162"/>
                             </pickerView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="umb-P8-1O3">
                                 <rect key="frame" x="16" y="20" width="288" height="32"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j4I-OF-RqN">
-                                <rect key="frame" x="16" y="325" width="288" height="178"/>
+                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j4I-OF-RqN" userLabel="txtTrattamentoCorpoPelliGiovani">
+                                <rect key="frame" x="16" y="370" width="288" height="178"/>
+                                <string key="text">Detergente
+Radiofrequenze
+Cavitazione
+Gel corpo
+Lenitiva</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eT2-bR-Z6F" userLabel="txtTrattamentoCorpoPelliMedie">
+                                <rect key="frame" x="16" y="370" width="288" height="178"/>
                                 <string key="text">Detergente
 Radiofrequenze
 Cavitazione
@@ -48,14 +52,23 @@ Lenitiva</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="KUE-yQ-ISb">
-                                <rect key="frame" x="16" y="511" width="288" height="37"/>
-                                <color key="pageIndicatorTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="currentPageIndicatorTintColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="pageControlIndicator:" destination="vXZ-lx-hvc" eventType="valueChanged" id="yqq-Ok-iic"/>
-                                </connections>
-                            </pageControl>
+                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2l-xG-McI" userLabel="txtTrattamentoCorpoPelliMature">
+                                <rect key="frame" x="16" y="370" width="288" height="178"/>
+                                <gestureRecognizers/>
+                                <string key="text">Detergente
+Radiofrequenze
+Cavitazione
+Gel corpo livello 2
+Lenitiva</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fid-Rq-QA2">
+                                <rect key="frame" x="0.0" y="222" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Trattamento" id="kJb-Cm-4mS"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -64,11 +77,14 @@ Lenitiva</string>
                         <outlet property="mainSelection" destination="9JP-fH-BbZ" id="VA9-5k-Knp"/>
                         <outlet property="selezioneTrattamentoPelle" destination="9JP-fH-BbZ" id="9HM-nS-nkt"/>
                         <outlet property="textTrattamento" destination="j4I-OF-RqN" id="jZv-it-5mJ"/>
+                        <outlet property="txtTrattamentoVisoPelliGiovani" destination="j4I-OF-RqN" id="VYs-RT-P1d"/>
+                        <outlet property="txtTrattamentoVisoPelliMature" destination="P2l-xG-McI" id="Tam-Vf-2UW"/>
+                        <outlet property="txtTrattamentoVisoPelliMedie" destination="eT2-bR-Z6F" id="J0q-Is-o88"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-717" y="212"/>
+            <point key="canvasLocation" x="-838" y="194"/>
         </scene>
     </scenes>
     <resources>
