@@ -23,9 +23,7 @@
 @synthesize bodyPartSelection;
 @synthesize skinTypeSelection;
 
-@synthesize txtTrattamentoVisoPelliGiovani;
-@synthesize txtTrattamentoVisoPelliMedie;
-@synthesize txtTrattamentoVisoPelliMature;
+@synthesize txtTrattamento;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -79,25 +77,59 @@
         skinTypeSelection = [[NSString alloc] initWithFormat:@"%@", [_pickerDataPelle objectAtIndex:row]];
     }
 
-    if ([bodyPartSelection  isEqual: @"Viso"]) {
-        if ([skinTypeSelection  isEqual: @"Giovane"]) {
-            txtTrattamentoVisoPelliGiovani.hidden = NO;
-            txtTrattamentoVisoPelliMedie.hidden = YES;
-            txtTrattamentoVisoPelliMature.hidden = YES;
-        } else if ([skinTypeSelection isEqual: @"Media"]) {
-            txtTrattamentoVisoPelliGiovani.hidden = YES;
-            txtTrattamentoVisoPelliMedie.hidden = NO;
-            txtTrattamentoVisoPelliMature.hidden = YES;
-        } else if ([skinTypeSelection isEqual: @"Matura"]) {
-            txtTrattamentoVisoPelliGiovani.hidden = YES;
-            txtTrattamentoVisoPelliMedie.hidden = YES;
-            txtTrattamentoVisoPelliMature.hidden = NO;
+    if ([bodyPartSelection  isEqualToString: @"Viso"]) {
+        if ([skinTypeSelection  isEqualToString: @"Giovane"]) {
+            [self selezione110];
+        } else if ([skinTypeSelection isEqualToString: @"Media"]) {
+            [self selezione120];
+        } else if ([skinTypeSelection isEqualToString: @"Matura"]) {
+            [self selezione130];
+        }
+    } else if ([bodyPartSelection isEqualToString: @"Corpo"]) {
+        if ([skinTypeSelection  isEqualToString: @"Giovane"]) {
+            [self selezione2100];
+        } else if ([skinTypeSelection isEqualToString: @"Media"]) {
+            [self selezione2200];
+        } else if ([skinTypeSelection isEqualToString: @"Matura"]) {
+            [self selezione2300];
         }
     }
-
-
 }
 
-- (IBAction)pageControlIndicator:(id)sender {
+- (void)selezione110 {
+    txtTrattamento.text = @"Detergente\nPeeling Enzimatico\nRadiofrequenza Gel Normale Viso\nGel Radiofrequenze\nLenitiva";
 }
+
+- (void)selezione120 {
+    txtTrattamento.text = @"Detergente\nPeeling Enzimatico\nRadiofrequenze Gel Livello 1\nGel Radiofrequenze Livello 1\nLenitiva";
+}
+
+- (void)selezione130 {
+    txtTrattamento.text = @"Detergente\nPeeling Enzimatico\nRadiofrequenze Gel Livello 2\nGel Radiofrequenze Livello 2\nLenitiva";
+}
+
+- (void)selezione101 {
+    txtTrattamento.text = @"Lenitiva\nCrema Antirughe\nContorno Occhi\nAcido Jaluronico";
+}
+
+- (void)selezione102 {
+    txtTrattamento.text = @"Lenitiva\nCrema Lifting Livello 1\nContorno Occhi Livello 1\nAcido Jaluronico Livello 1";
+}
+
+- (void)selezione103 {
+    txtTrattamento.text = @"Lenitiva\nCrema Lifting Livello 2\nSiero Antimacchia\nContorno Occhi Livello 2\nAcido Jaluronico Livello 2";
+}
+
+- (void)selezione2100 {
+    txtTrattamento.text = @"Detergente\nRadiofrequenze\nCavitazione\nGel Corpo\nLenitiva";
+}
+
+- (void)selezione2200 {
+    txtTrattamento.text = @"Detergente\nRadiofrequenze\nCavitazione\nGel Corpo Livello 1\nLenitiva";
+}
+
+- (void)selezione2300 {
+    txtTrattamento.text = @"Detergente\nRadiofrequenze\nCavitazione\nGel Corpo Livello 2\nLenitiva";
+}
+
 @end

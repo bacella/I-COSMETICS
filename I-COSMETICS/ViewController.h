@@ -11,14 +11,8 @@
 @interface ViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIPickerView *mainSelection;
-@property (weak, nonatomic) IBOutlet UITextView *textTrattamento;
-- (IBAction)pageControlIndicator:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextView *txtTrattamento;
 @property (weak, nonatomic) IBOutlet UIPickerView *selezioneTrattamentoPelle;
-
-@property (weak, nonatomic) IBOutlet UITextView *txtTrattamentoVisoPelliGiovani;
-@property (weak, nonatomic) IBOutlet UITextView *txtTrattamentoVisoPelliMedie;
-@property (weak, nonatomic) IBOutlet UITextView *txtTrattamentoVisoPelliMature;
-
 
 @property (strong, nonatomic) NSString *bodyPartSelection;
 @property (strong, nonatomic) NSString *skinTypeSelection;
