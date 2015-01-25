@@ -96,40 +96,77 @@
     }
 }
 
+// Trattamento Viso | Pelli Giovani
 - (void)selezione110 {
     txtTrattamento.text = @"Detergente\nPeeling Enzimatico\nRadiofrequenza Gel Normale Viso\nGel Radiofrequenze\nLenitiva";
 }
 
+// Trattamento Viso | Pelli Medie
 - (void)selezione120 {
     txtTrattamento.text = @"Detergente\nPeeling Enzimatico\nRadiofrequenze Gel Livello 1\nGel Radiofrequenze Livello 1\nLenitiva";
 }
 
+// Trattamento Viso | Pelli Mature
 - (void)selezione130 {
     txtTrattamento.text = @"Detergente\nPeeling Enzimatico\nRadiofrequenze Gel Livello 2\nGel Radiofrequenze Livello 2\nLenitiva";
 }
 
+// Trattamento Viso | Pelli Giovani (Post Trattamento Consigliato)
 - (void)selezione101 {
     txtTrattamento.text = @"Lenitiva\nCrema Antirughe\nContorno Occhi\nAcido Jaluronico";
 }
 
+// Trattamento Viso | Pelli Medie (Post Trattamento Consigliato)
 - (void)selezione102 {
     txtTrattamento.text = @"Lenitiva\nCrema Lifting Livello 1\nContorno Occhi Livello 1\nAcido Jaluronico Livello 1";
 }
 
+// Trattamento Viso | Pelli Mature (Post Trattamento Consigliato)
 - (void)selezione103 {
     txtTrattamento.text = @"Lenitiva\nCrema Lifting Livello 2\nSiero Antimacchia\nContorno Occhi Livello 2\nAcido Jaluronico Livello 2";
 }
 
+// Trattamento Corpo / Pelli Giovani
 - (void)selezione2100 {
     txtTrattamento.text = @"Detergente\nRadiofrequenze\nCavitazione\nGel Corpo\nLenitiva";
 }
 
+// Trattamento Corpo / Pelli Medie
 - (void)selezione2200 {
     txtTrattamento.text = @"Detergente\nRadiofrequenze\nCavitazione\nGel Corpo Livello 1\nLenitiva";
 }
 
+// Trattamento Corpo / Pelli Mature
 - (void)selezione2300 {
     txtTrattamento.text = @"Detergente\nRadiofrequenze\nCavitazione\nGel Corpo Livello 2\nLenitiva";
 }
+// Trattamento Corpo / Pelli Giovani (Cosmetici Consigliati)
+- (void)selezione2010 {
+    txtTrattamento.text = @"Docciaschiuma\nCrema Seno\nRassodante\nAnti-smagliature";
+}
 
+// Trattamento Corpo / Pelli Medie (Cosmetici Consigliati)
+- (void)selezione2020 {
+    txtTrattamento.text = @"Docciaschiuma\nCrema Seno 1\nRassodante\nAnti-smagliature";
+}
+
+// Trattamento Corpo / Pelli Mature (Cosmetici Consigliati)
+- (void)selezione2030 {
+    txtTrattamento.text = @"Docciaschiuma\nCrema Seno 2\nRassodante\nAnti-smagliature";
+}
+
+// Trattamento Corpo / Pelli Giovani (Integratori Consigliati)
+- (void)selezione2001 {
+    txtTrattamento.text = @"Antiossidante\nDrenante\nAnticellulite";
+}
+
+// Trattamento Corpo / Pelli Medie (Integratori Consigliati)
+- (void)selezione2002 {
+    txtTrattamento.text = @"Antiossidante\nDrenante\nAnticellulite";
+}
+
+// Trattamento Corpo / Pelli Mature (Integratori Consigliati)
+- (void)selezione2003 {
+    txtTrattamento.text = @"Antiossidante\nDrenante\nAnticellulite";
+}
 @end

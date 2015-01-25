@@ -23,21 +23,36 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sfondo.png" translatesAutoresizingMaskIntoConstraints="NO" id="B8d-oX-Z9q">
-                                <rect key="frame" x="16" y="325" width="288" height="178"/>
-                            </imageView>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9JP-fH-BbZ">
                                 <rect key="frame" x="0.0" y="60" width="320" height="162"/>
                             </pickerView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="umb-P8-1O3">
                                 <rect key="frame" x="16" y="20" width="288" height="32"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" editable="NO" text="INIZIO" translatesAutoresizingMaskIntoConstraints="NO" id="5oH-kB-I86" userLabel="txtTrattamento">
-                                <rect key="frame" x="16" y="370" width="288" height="178"/>
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CLp-BV-a5x">
+                                <rect key="frame" x="16" y="230" width="288" height="286"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sfondo.png" translatesAutoresizingMaskIntoConstraints="NO" id="B8d-oX-Z9q">
+                                        <rect key="frame" x="0.0" y="54" width="288" height="224"/>
+                                    </imageView>
+                                    <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nkG-so-mNl">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="44"/>
+                                        <items>
+                                            <navigationItem title="Trattamento" id="6vC-ix-cZH">
+                                                <barButtonItem key="leftBarButtonItem" style="plain" systemItem="done" id="c8k-ka-kDz"/>
+                                                <barButtonItem key="rightBarButtonItem" style="plain" systemItem="play" id="dep-Sl-z4s"/>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" editable="NO" text="INIZIO" translatesAutoresizingMaskIntoConstraints="NO" id="5oH-kB-I86" userLabel="txtTrattamento">
+                                        <rect key="frame" x="0.0" y="54" width="288" height="224"/>
+                                        <gestureRecognizers/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -52,7 +67,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-838" y="194"/>
+            <point key="canvasLocation" x="-1338" y="139"/>
         </scene>
     </scenes>
     <resources>
