@@ -12,7 +12,17 @@
 
 @property (weak, nonatomic) IBOutlet UIPickerView *mainSelection;
 @property (weak, nonatomic) IBOutlet UITextView *txtTrattamento;
+@property (weak, nonatomic) IBOutlet UITextView *txtPostTrattamento;
 @property (weak, nonatomic) IBOutlet UIPickerView *selezioneTrattamentoPelle;
+
+@property (weak, nonatomic) IBOutlet UILabel *lblRecipeTitle;
+
+// Swipe
+@property (strong, nonatomic) IBOutlet UIView *mainView;
+- (IBAction)swipe:(UIGestureRecognizer *)sender;
+// Page Controller Indicator
+@property (weak, nonatomic) IBOutlet UIPageControl *pageController;
+
 
 @property (strong, nonatomic) NSString *bodyPartSelection;
 @property (strong, nonatomic) NSString *skinTypeSelection;

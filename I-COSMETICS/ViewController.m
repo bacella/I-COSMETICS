@@ -24,6 +24,29 @@
 @synthesize skinTypeSelection;
 
 @synthesize txtTrattamento;
+@synthesize txtPostTrattamento;
+
+@synthesize lblRecipeTitle;
+
+@synthesize pageController;
+
+// Swipe
+- (IBAction)swipe:(id)sender {
+    // NSLog(@"swiped");
+    
+    if (txtTrattamento.hidden == false) {
+        lblRecipeTitle.text = @"Post Trattamento";
+        txtTrattamento.hidden = true;
+        txtPostTrattamento.hidden = false;
+        pageController.currentPage = 1;
+    } else {
+        lblRecipeTitle.text = @"Trattamento";
+        txtTrattamento.hidden = false;
+        txtPostTrattamento.hidden = true;
+        pageController.currentPage = 0;
+    }
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,6 +55,14 @@
     // Initialize data
     _pickerDataTrattamento = @[@"Viso", @"Corpo"];
     _pickerDataPelle = @[@"Giovane", @"Media", @"Matura"];
+    
+    // Load stating variables from picker initial (zero) position
+    bodyPartSelection = [[NSString alloc] initWithFormat:@"%@", [_pickerDataTrattamento objectAtIndex:0]];
+    skinTypeSelection = [[NSString alloc] initWithFormat:@"%@", [_pickerDataPelle objectAtIndex:1]];
+
+    // App startup data to display
+    lblRecipeTitle.text = @"Trattamento";
+    txtTrattamento.text = @"Detergente\nPeeling Enzimatico\nRadiofrequenza Gel Normale Viso\nGel Radiofrequenze\nLenitiva";
     
     // Connect data
     self.mainSelection.dataSource = self;
@@ -73,87 +104,109 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     if (component == 0) {
         bodyPartSelection = [[NSString alloc] initWithFormat:@"%@", [_pickerDataTrattamento objectAtIndex:row]];
+        [self newSelection];
     } else {
         skinTypeSelection = [[NSString alloc] initWithFormat:@"%@", [_pickerDataPelle objectAtIndex:row]];
+        [self newSelection];
     }
+}
 
+// Determina Selezione (Combinazioni)
+/* Legenda Selezione:
+ *  Trattamento Viso    + Pelle Giovane    = 11
+ *  Trattamento Viso    + Pelle Media      = 12
+ *  Trattamento Viso    + Pelle Matura     = 13
+ *  Trattamento Corpo   + Pelle Giovane    = 21
+ *  Trattamento Corpo   + Pelle Media      = 22
+ *  Trattamento Corpo   + Pelle Matura     = 23
+ */
+- (void)newSelection {
     if ([bodyPartSelection  isEqualToString: @"Viso"]) {
         if ([skinTypeSelection  isEqualToString: @"Giovane"]) {
-            [self selezione110];
+            [self selezione11];
         } else if ([skinTypeSelection isEqualToString: @"Media"]) {
-            [self selezione120];
+            [self selezione12];
         } else if ([skinTypeSelection isEqualToString: @"Matura"]) {
-            [self selezione130];
+            [self selezione13];
         }
     } else if ([bodyPartSelection isEqualToString: @"Corpo"]) {
         if ([skinTypeSelection  isEqualToString: @"Giovane"]) {
-            [self selezione2100];
+            [self selezione21];
         } else if ([skinTypeSelection isEqualToString: @"Media"]) {
-            [self selezione2200];
+            [self selezione22];
         } else if ([skinTypeSelection isEqualToString: @"Matura"]) {
-            [self selezione2300];
+            [self selezione23];
         }
     }
 }
 
 // Trattamento Viso | Pelli Giovani
-- (void)selezione110 {
+- (void)selezione11 {
     txtTrattamento.text = @"Detergente\nPeeling Enzimatico\nRadiofrequenza Gel Normale Viso\nGel Radiofrequenze\nLenitiva";
+    txtPostTrattamento.text = @"Lenitiva\nCrema Antirughe\nContorno Occhi\nAcido Jaluronico";
 }
 
 // Trattamento Viso | Pelli Medie
-- (void)selezione120 {
+- (void)selezione12 {
     txtTrattamento.text = @"Detergente\nPeeling Enzimatico\nRadiofrequenze Gel Livello 1\nGel Radiofrequenze Livello 1\nLenitiva";
+    txtPostTrattamento.text = @"Lenitiva\nCrema Lifting Livello 1\nContorno Occhi Livello 1\nAcido Jaluronico Livello 1";
 }
 
 // Trattamento Viso | Pelli Mature
-- (void)selezione130 {
+- (void)selezione13 {
     txtTrattamento.text = @"Detergente\nPeeling Enzimatico\nRadiofrequenze Gel Livello 2\nGel Radiofrequenze Livello 2\nLenitiva";
-}
-
-// Trattamento Viso | Pelli Giovani (Post Trattamento Consigliato)
-- (void)selezione101 {
-    txtTrattamento.text = @"Lenitiva\nCrema Antirughe\nContorno Occhi\nAcido Jaluronico";
-}
-
-// Trattamento Viso | Pelli Medie (Post Trattamento Consigliato)
-- (void)selezione102 {
-    txtTrattamento.text = @"Lenitiva\nCrema Lifting Livello 1\nContorno Occhi Livello 1\nAcido Jaluronico Livello 1";
-}
-
-// Trattamento Viso | Pelli Mature (Post Trattamento Consigliato)
-- (void)selezione103 {
-    txtTrattamento.text = @"Lenitiva\nCrema Lifting Livello 2\nSiero Antimacchia\nContorno Occhi Livello 2\nAcido Jaluronico Livello 2";
+    txtPostTrattamento.text = @"Lenitiva\nCrema Lifting Livello 2\nSiero Antimacchia\nContorno Occhi Livello 2\nAcido Jaluronico Livello 2";
 }
 
 // Trattamento Corpo / Pelli Giovani
-- (void)selezione2100 {
+- (void)selezione21 {
     txtTrattamento.text = @"Detergente\nRadiofrequenze\nCavitazione\nGel Corpo\nLenitiva";
+    txtPostTrattamento.text = @"Docciaschiuma\nCrema Seno\nRassodante\nAnti-smagliature";
 }
 
 // Trattamento Corpo / Pelli Medie
-- (void)selezione2200 {
+- (void)selezione22 {
     txtTrattamento.text = @"Detergente\nRadiofrequenze\nCavitazione\nGel Corpo Livello 1\nLenitiva";
+    txtPostTrattamento.text = @"Docciaschiuma\nCrema Seno 1\nRassodante\nAnti-smagliature";
 }
 
 // Trattamento Corpo / Pelli Mature
-- (void)selezione2300 {
+- (void)selezione23 {
     txtTrattamento.text = @"Detergente\nRadiofrequenze\nCavitazione\nGel Corpo Livello 2\nLenitiva";
-}
-// Trattamento Corpo / Pelli Giovani (Cosmetici Consigliati)
-- (void)selezione2010 {
-    txtTrattamento.text = @"Docciaschiuma\nCrema Seno\nRassodante\nAnti-smagliature";
+    txtPostTrattamento.text = @"Docciaschiuma\nCrema Seno 2\nRassodante\nAnti-smagliature";
 }
 
-// Trattamento Corpo / Pelli Medie (Cosmetici Consigliati)
-- (void)selezione2020 {
-    txtTrattamento.text = @"Docciaschiuma\nCrema Seno 1\nRassodante\nAnti-smagliature";
-}
 
-// Trattamento Corpo / Pelli Mature (Cosmetici Consigliati)
-- (void)selezione2030 {
-    txtTrattamento.text = @"Docciaschiuma\nCrema Seno 2\nRassodante\nAnti-smagliature";
-}
+//// Trattamento Viso | Pelli Giovani (Post Trattamento Consigliato)
+//- (void)selezione101 {
+//    txtTrattamento.text = @"Lenitiva\nCrema Antirughe\nContorno Occhi\nAcido Jaluronico";
+//}
+
+//// Trattamento Viso | Pelli Medie (Post Trattamento Consigliato)
+//- (void)selezione102 {
+//    txtTrattamento.text = @"Lenitiva\nCrema Lifting Livello 1\nContorno Occhi Livello 1\nAcido Jaluronico Livello 1";
+//}
+
+//// Trattamento Viso | Pelli Mature (Post Trattamento Consigliato)
+//- (void)selezione103 {
+//    txtTrattamento.text = @"Lenitiva\nCrema Lifting Livello 2\nSiero Antimacchia\nContorno Occhi Livello 2\nAcido Jaluronico Livello 2";
+//}
+
+
+//// Trattamento Corpo / Pelli Giovani (Cosmetici Consigliati)
+//- (void)selezione2010 {
+//    txtTrattamento.text = @"Docciaschiuma\nCrema Seno\nRassodante\nAnti-smagliature";
+//}
+
+//// Trattamento Corpo / Pelli Medie (Cosmetici Consigliati)
+//- (void)selezione2020 {
+//    txtTrattamento.text = @"Docciaschiuma\nCrema Seno 1\nRassodante\nAnti-smagliature";
+//}
+
+//// Trattamento Corpo / Pelli Mature (Cosmetici Consigliati)
+//- (void)selezione2030 {
+//    txtTrattamento.text = @"Docciaschiuma\nCrema Seno 2\nRassodante\nAnti-smagliature";
+//}
 
 // Trattamento Corpo / Pelli Giovani (Integratori Consigliati)
 - (void)selezione2001 {
@@ -169,4 +222,5 @@
 - (void)selezione2003 {
     txtTrattamento.text = @"Antiossidante\nDrenante\nAnticellulite";
 }
+
 @end

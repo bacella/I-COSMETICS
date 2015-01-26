@@ -17,6 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="umb-P8-1O3">
+                                <rect key="frame" x="16" y="20" width="288" height="32"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Trattamento e tipo di pelle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCI-gl-d2M">
                                 <rect key="frame" x="16" y="60" width="288" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
@@ -26,48 +29,66 @@
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9JP-fH-BbZ">
                                 <rect key="frame" x="0.0" y="60" width="320" height="162"/>
                             </pickerView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="umb-P8-1O3">
-                                <rect key="frame" x="16" y="20" width="288" height="32"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sfondo.png" translatesAutoresizingMaskIntoConstraints="NO" id="B8d-oX-Z9q">
+                                <rect key="frame" x="16" y="238" width="288" height="278"/>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CLp-BV-a5x">
-                                <rect key="frame" x="16" y="230" width="288" height="286"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sfondo.png" translatesAutoresizingMaskIntoConstraints="NO" id="B8d-oX-Z9q">
-                                        <rect key="frame" x="0.0" y="54" width="288" height="224"/>
-                                    </imageView>
-                                    <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nkG-so-mNl">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="44"/>
-                                        <items>
-                                            <navigationItem title="Trattamento" id="6vC-ix-cZH">
-                                                <barButtonItem key="leftBarButtonItem" style="plain" systemItem="done" id="c8k-ka-kDz"/>
-                                                <barButtonItem key="rightBarButtonItem" style="plain" systemItem="play" id="dep-Sl-z4s"/>
-                                            </navigationItem>
-                                        </items>
-                                    </navigationBar>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" editable="NO" text="INIZIO" translatesAutoresizingMaskIntoConstraints="NO" id="5oH-kB-I86" userLabel="txtTrattamento">
-                                        <rect key="frame" x="0.0" y="54" width="288" height="224"/>
-                                        <gestureRecognizers/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" editable="NO" text="INIZIO" translatesAutoresizingMaskIntoConstraints="NO" id="5oH-kB-I86" userLabel="txtTrattamento">
+                                <rect key="frame" x="16" y="279" width="288" height="237"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" editable="NO" text="INIZIO" translatesAutoresizingMaskIntoConstraints="NO" id="d8v-O5-gvP" userLabel="txtPostTrattamento">
+                                <rect key="frame" x="16" y="279" width="288" height="237"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="31z-PJ-My3">
+                                <rect key="frame" x="141" y="524" width="39" height="37"/>
+                                <color key="pageIndicatorTintColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.062745101750000004" green="0.95686280729999995" blue="0.96470594409999999" alpha="1" colorSpace="deviceRGB"/>
+                            </pageControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Trattamento" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vw7-x7-Xf5">
+                                <rect key="frame" x="16" y="220" width="288" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="6w6-hE-dg3" appends="YES" id="OhY-3l-n3W"/>
+                            <outletCollection property="gestureRecognizers" destination="bdl-uz-R31" appends="YES" id="z3m-nB-WNN"/>
+                        </connections>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="lblRecipeTitle" destination="vw7-x7-Xf5" id="DRn-rF-2AM"/>
                         <outlet property="mainSelection" destination="9JP-fH-BbZ" id="VA9-5k-Knp"/>
+                        <outlet property="mainView" destination="kh9-bI-dsS" id="rFn-nX-Eex"/>
+                        <outlet property="pageController" destination="31z-PJ-My3" id="5iD-IE-Tig"/>
                         <outlet property="selezioneTrattamentoPelle" destination="9JP-fH-BbZ" id="9HM-nS-nkt"/>
+                        <outlet property="txtPostTrattamento" destination="d8v-O5-gvP" id="zU6-61-V4s"/>
                         <outlet property="txtTrattamento" destination="5oH-kB-I86" id="70F-4q-blO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="6w6-hE-dg3" userLabel="Swipe Left">
+                    <connections>
+                        <action selector="swipe:" destination="vXZ-lx-hvc" id="QEF-8R-FuF"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="bdl-uz-R31" userLabel="Swipe Right">
+                    <connections>
+                        <action selector="swipe:" destination="vXZ-lx-hvc" id="IA9-m6-Ks9"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1338" y="139"/>
+            <point key="canvasLocation" x="-2875" y="-209"/>
         </scene>
     </scenes>
     <resources>
