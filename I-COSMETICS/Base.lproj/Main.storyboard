@@ -44,6 +44,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" editable="NO" text="INIZIO" translatesAutoresizingMaskIntoConstraints="NO" id="pa4-hZ-2pf" userLabel="txtIntegratori">
+                                <rect key="frame" x="16" y="279" width="288" height="237"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="31z-PJ-My3">
                                 <rect key="frame" x="141" y="524" width="39" height="37"/>
                                 <color key="pageIndicatorTintColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -72,6 +78,7 @@
                         <outlet property="mainView" destination="kh9-bI-dsS" id="rFn-nX-Eex"/>
                         <outlet property="pageController" destination="31z-PJ-My3" id="5iD-IE-Tig"/>
                         <outlet property="selezioneTrattamentoPelle" destination="9JP-fH-BbZ" id="9HM-nS-nkt"/>
+                        <outlet property="txtIntegratori" destination="pa4-hZ-2pf" id="p8e-u9-odV"/>
                         <outlet property="txtPostTrattamento" destination="d8v-O5-gvP" id="zU6-61-V4s"/>
                         <outlet property="txtTrattamento" destination="5oH-kB-I86" id="70F-4q-blO"/>
                     </connections>
@@ -88,7 +95,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-2875" y="-209"/>
+            <point key="canvasLocation" x="-3363" y="-259"/>
         </scene>
     </scenes>
     <resources>

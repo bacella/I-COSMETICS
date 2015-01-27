@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *mainSelection;
 @property (weak, nonatomic) IBOutlet UITextView *txtTrattamento;
 @property (weak, nonatomic) IBOutlet UITextView *txtPostTrattamento;
+@property (weak, nonatomic) IBOutlet UITextView *txtIntegratori;
 @property (weak, nonatomic) IBOutlet UIPickerView *selezioneTrattamentoPelle;
 
 @property (weak, nonatomic) IBOutlet UILabel *lblRecipeTitle;

@@ -25,6 +25,7 @@
 
 @synthesize txtTrattamento;
 @synthesize txtPostTrattamento;
+@synthesize txtIntegratori;
 
 @synthesize lblRecipeTitle;
 
@@ -34,17 +35,42 @@
 - (IBAction)swipe:(id)sender {
     // NSLog(@"swiped");
     
-    if (txtTrattamento.hidden == false) {
-        lblRecipeTitle.text = @"Post Trattamento";
-        txtTrattamento.hidden = true;
-        txtPostTrattamento.hidden = false;
-        pageController.currentPage = 1;
-    } else {
-        lblRecipeTitle.text = @"Trattamento";
-        txtTrattamento.hidden = false;
-        txtPostTrattamento.hidden = true;
-        pageController.currentPage = 0;
+    UISwipeGestureRecognizerDirection direction = [(UISwipeGestureRecognizer *) sender direction];
+    
+    if (pageController.numberOfPages == 2) {
+        if ((txtTrattamento.hidden == false) && (direction == UISwipeGestureRecognizerDirectionLeft)) {
+            lblRecipeTitle.text = @"Post Trattamento";
+            txtTrattamento.hidden = true;
+            txtPostTrattamento.hidden = false;
+            pageController.currentPage = 1;
+        } else if ((txtPostTrattamento.hidden == false) && (direction == UISwipeGestureRecognizerDirectionRight)){
+            lblRecipeTitle.text = @"Trattamento";
+            txtTrattamento.hidden = false;
+            txtPostTrattamento.hidden = true;
+            pageController.currentPage = 0;
+        }
+    } else if (pageController.numberOfPages == 3) {
+        if (((txtTrattamento.hidden == false) && (direction == UISwipeGestureRecognizerDirectionLeft)) || ((txtIntegratori.hidden == false) && (direction == UISwipeGestureRecognizerDirectionRight))) {
+            lblRecipeTitle.text = @"Post Trattamento";
+            txtTrattamento.hidden = true;
+            txtPostTrattamento.hidden = false;
+            txtIntegratori.hidden = true;
+            pageController.currentPage = 1;
+        } else if ((txtPostTrattamento.hidden == false) && (direction == UISwipeGestureRecognizerDirectionLeft)) {
+            lblRecipeTitle.text = @"Integratori";
+            txtTrattamento.hidden = true;
+            txtPostTrattamento.hidden = true;
+            txtIntegratori.hidden = false;
+            pageController.currentPage = 2;
+        } else if ((txtPostTrattamento.hidden == false) && (direction == UISwipeGestureRecognizerDirectionRight)) {
+            lblRecipeTitle.text = @"Trattamento";
+            txtTrattamento.hidden = false;
+            txtPostTrattamento.hidden = true;
+            txtIntegratori.hidden = true;
+            pageController.currentPage = 0;
+        }
     }
+    
     
 }
 
@@ -63,6 +89,7 @@
     // App startup data to display
     lblRecipeTitle.text = @"Trattamento";
     txtTrattamento.text = @"Detergente\nPeeling Enzimatico\nRadiofrequenza Gel Normale Viso\nGel Radiofrequenze\nLenitiva";
+    txtPostTrattamento.text = @"Lenitiva\nCrema Antirughe\nContorno Occhi\nAcido Jaluronico";
     
     // Connect data
     self.mainSelection.dataSource = self;
@@ -109,19 +136,31 @@
         skinTypeSelection = [[NSString alloc] initWithFormat:@"%@", [_pickerDataPelle objectAtIndex:row]];
         [self newSelection];
     }
+    
+    [self resetViewUponBodyPartSelection];
 }
 
-// Determina Selezione (Combinazioni)
-/* Legenda Selezione:
- *  Trattamento Viso    + Pelle Giovane    = 11
- *  Trattamento Viso    + Pelle Media      = 12
- *  Trattamento Viso    + Pelle Matura     = 13
- *  Trattamento Corpo   + Pelle Giovane    = 21
- *  Trattamento Corpo   + Pelle Media      = 22
- *  Trattamento Corpo   + Pelle Matura     = 23
- */
+// Reset Recipe View
+- (void)resetViewUponBodyPartSelection {
+    lblRecipeTitle.text = @"Trattamento";
+    txtTrattamento.hidden = false;
+    txtPostTrattamento.hidden = true;
+    txtIntegratori.hidden = true;
+    pageController.currentPage = 0;
+}
+
 - (void)newSelection {
+    // Determina Selezione (Combinazioni)
+    /* Legenda Selezione:
+     *  Trattamento Viso    + Pelle Giovane    = 11
+     *  Trattamento Viso    + Pelle Media      = 12
+     *  Trattamento Viso    + Pelle Matura     = 13
+     *  Trattamento Corpo   + Pelle Giovane    = 21
+     *  Trattamento Corpo   + Pelle Media      = 22
+     *  Trattamento Corpo   + Pelle Matura     = 23
+     */
     if ([bodyPartSelection  isEqualToString: @"Viso"]) {
+        pageController.numberOfPages = 2;
         if ([skinTypeSelection  isEqualToString: @"Giovane"]) {
             [self selezione11];
         } else if ([skinTypeSelection isEqualToString: @"Media"]) {
@@ -130,6 +169,7 @@
             [self selezione13];
         }
     } else if ([bodyPartSelection isEqualToString: @"Corpo"]) {
+        pageController.numberOfPages = 3;
         if ([skinTypeSelection  isEqualToString: @"Giovane"]) {
             [self selezione21];
         } else if ([skinTypeSelection isEqualToString: @"Media"]) {
@@ -162,18 +202,21 @@
 - (void)selezione21 {
     txtTrattamento.text = @"Detergente\nRadiofrequenze\nCavitazione\nGel Corpo\nLenitiva";
     txtPostTrattamento.text = @"Docciaschiuma\nCrema Seno\nRassodante\nAnti-smagliature";
+    txtIntegratori.text = @"Antiossidante\nDrenante\nAnticellulite";
 }
 
 // Trattamento Corpo / Pelli Medie
 - (void)selezione22 {
     txtTrattamento.text = @"Detergente\nRadiofrequenze\nCavitazione\nGel Corpo Livello 1\nLenitiva";
     txtPostTrattamento.text = @"Docciaschiuma\nCrema Seno 1\nRassodante\nAnti-smagliature";
+    txtIntegratori.text = @"Antiossidante\nDrenante\nAnticellulite";
 }
 
 // Trattamento Corpo / Pelli Mature
 - (void)selezione23 {
     txtTrattamento.text = @"Detergente\nRadiofrequenze\nCavitazione\nGel Corpo Livello 2\nLenitiva";
     txtPostTrattamento.text = @"Docciaschiuma\nCrema Seno 2\nRassodante\nAnti-smagliature";
+    txtIntegratori.text = @"Antiossidante\nDrenante\nAnticellulite";
 }
 
 
@@ -208,19 +251,19 @@
 //    txtTrattamento.text = @"Docciaschiuma\nCrema Seno 2\nRassodante\nAnti-smagliature";
 //}
 
-// Trattamento Corpo / Pelli Giovani (Integratori Consigliati)
-- (void)selezione2001 {
-    txtTrattamento.text = @"Antiossidante\nDrenante\nAnticellulite";
-}
+//// Trattamento Corpo / Pelli Giovani (Integratori Consigliati)
+//- (void)selezione2001 {
+//    txtIntegratori.text = @"Antiossidante\nDrenante\nAnticellulite";
+//}
 
-// Trattamento Corpo / Pelli Medie (Integratori Consigliati)
-- (void)selezione2002 {
-    txtTrattamento.text = @"Antiossidante\nDrenante\nAnticellulite";
-}
+//// Trattamento Corpo / Pelli Medie (Integratori Consigliati)
+//- (void)selezione2002 {
+//    txtIntegratori.text = @"Antiossidante\nDrenante\nAnticellulite";
+//}
 
-// Trattamento Corpo / Pelli Mature (Integratori Consigliati)
-- (void)selezione2003 {
-    txtTrattamento.text = @"Antiossidante\nDrenante\nAnticellulite";
-}
+//// Trattamento Corpo / Pelli Mature (Integratori Consigliati)
+//- (void)selezione2003 {
+//    txtIntegratori.text = @"Antiossidante\nDrenante\nAnticellulite";
+//}
 
 @end
